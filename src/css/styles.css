@@ -6,6 +6,10 @@
 */
 @import url('./reset.css');
 
+body {
+  margin: 16px;
+}
+
 .timer-box {
   margin-left: 156px;
   margin-top: 36px;
@@ -76,30 +80,68 @@
 }
 
 .form {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 360px;
   margin-top: 30px;
 }
 
-fieldset {
-  margin: 20px 0;
+form > label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
 
-input {
-  padding: 10px;
+form > label > input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+  margin-top: 8px;
 }
 
 fieldset {
   display: flex;
-  max-width: 250px;
-  column-gap: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 78px;
+  margin-top: 8px;
 }
 
-.form label,
-.form input,
-.form fieldset .form button {
-  display: block;
+form > button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 360px;
+  height: 40px;
+  margin-top: 24px;
+  background: #4e75ff;
 }
-.form fieldset label {
-  display: inline-block;
-  margin-right: 20px;
+
+.form > fieldset > label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2e2f42;
+}
+
+.form > fieldset > legend {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
