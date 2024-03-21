@@ -19,14 +19,14 @@ form.addEventListener('submit', event => {
   });
 
   promise
-    .then(value => {
+    .then(delay => {
       iziToast.success({
         color: 'green',
         position: 'topRight',
         message: `✅ Fulfilled promise in ${delay}ms`,
       });
     })
-    .catch(error => {
+    .catch(delay => {
       iziToast.error({
         color: 'red',
         position: 'topRight',

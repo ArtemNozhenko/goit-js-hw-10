@@ -5,8 +5,12 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const selector = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
+const dataDays = document.querySelector('[data-days]');
+const dataHours = document.querySelector('[data-hours]');
+const dataMinutes = document.querySelector('[data-minutes]');
+const dataSeconds = document.querySelector('[data-seconds]');
 btnStart.setAttribute('disabled', true);
-let userSelectedDates = 0;
+let userSelectedDate = 0;
 
 const options = {
   enableTime: true,
@@ -14,9 +18,9 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    userSelectedDates = selectedDates[0];
+    userSelectedDate = selectedDates[0];
     const currentDate = new Date();
-    if (userSelectedDates < currentDate) {
+    if (userSelectedDate < currentDate) {
       iziToast.error({
         color: 'red',
         message: 'Please choose a date in the future.',
@@ -49,15 +53,13 @@ function convertMs(ms) {
 function startTimer() {
   btnStart.setAttribute('disabled', true);
   selector.setAttribute('disabled', true);
-  let msDifference = userSelectedDates - new Date();
+  let msDifference = userSelectedDate - new Date();
   const intervalId = setInterval(() => {
     let { days, hours, minutes, seconds } = convertMs(msDifference);
-    document.querySelector('[data-days]').textContent = addZeroOnStart(days);
-    document.querySelector('[data-hours]').textContent = addZeroOnStart(hours);
-    document.querySelector('[data-minutes]').textContent =
-      addZeroOnStart(minutes);
-    document.querySelector('[data-seconds]').textContent =
-      addZeroOnStart(seconds);
+    dataDays.textContent = addZeroOnStart(days);
+    dataHours.textContent = addZeroOnStart(hours);
+    dataMinutes.textContent = addZeroOnStart(minutes);
+    dataSeconds.textContent = addZeroOnStart(seconds);
     if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
       clearInterval(intervalId);
       btnStart.removeAttribute('disabled');
